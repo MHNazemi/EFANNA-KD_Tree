@@ -21,8 +21,6 @@ class CompratorNode:
 
     def addLeftChild(self,left):
         self.leftChild=left
-
-
 class LeafNode:
     def __init__(self,parent,values=[]):
         self.parent=parent
@@ -35,10 +33,6 @@ class LeafNode:
     def addValue(self,*args):
         for point in args:
             self.values.append(point)
-
-
-
-
 class Tree:
     def __init__(self,points,dimension,leafPointsCount):
         self.points=points
@@ -91,6 +85,35 @@ class Tree:
 
 
 
+class Tree2:
+    def __init__(self,points,dim,k):
+        self.p=points
+        self.d=dim
+        self.k=k
+        self.__st(None)
+
+    def __st(self,p,n):
+        if len(self.p) <self.k:
+            return Leaf(self.p,n)
+
+
+        select_d=random.randint(0,self.dimension-1)
+        speceficDimonList=[n[select_d] for n in self.points ]
+        mid = int(median([1, 1, 2, 1, 1]))
+        print(mid)
+
+class Node:
+    def __init__(self,value,title,parent):
+        self.v=value
+        self.t=title
+        self.p=parent
+        self.c_r=None
+        self.c_l=None
+
+class Leaf:
+    def __init__(self,nodes,parent):
+        self.n=nodes
+        self.p=parent
 
 
 
@@ -109,10 +132,12 @@ def main ():
 
 
 
-sys.setrecursionlimit(10000000)
-threading.stack_size(200000000)
-thread = threading.Thread(target=main)
+# sys.setrecursionlimit(10000000)
+# threading.stack_size(200000000)
+# thread = threading.Thread(target=main)
+#
+#
+# thread.start()
 
-
-thread.start()
-
+mid = int(median([1,1,2,1,1]))
+print(mid)
